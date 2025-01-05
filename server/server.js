@@ -11,7 +11,16 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+    origin: 'https://imagify-zs.vercel.app', // Replace with your frontend domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+    credentials: true, // Enable if using cookies or authorization headers
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
 await connectDB();
 app.use('/api/user' , userRouter);
 app.use('/api/image' , imageRouter);
