@@ -17,7 +17,7 @@ const AppContextProvider = (props) => {
 
     const loadCreditsData = async () => {
         try {
-            const { data } = await axios.get(backendurl + '/api/user/credits', { headers: { token } })
+            const { data } = await axios.get(backendurl + '/api/user/credits', { headers: { token  } })
 
             if (data.success) {
                 setCredit(data.credits)
@@ -33,25 +33,25 @@ const AppContextProvider = (props) => {
 
     const generateImage = async (prompt) => {
         try {
-            const { data } = await axios.post(backendurl + '/api/image/generate-image', { prompt }, { headers: { token } })
-
+            const { data } = await axios.post(backendurl + '/api/image/generate-image', { prompt }, { headers: { token } });
+    
             if (data.success) {
-                loadCreditsData()
-                return data.resultImage
-            } else {
-                toast.error(data.message)
-                loadCreditsData()
-                if (data.creditBalance === 0) {
-                    navigate('/buy')
-                }
+                loadCreditsData();
+                return data.resultImage;
+            }
+    
+            toast.error(data.message);
+            if (data.creditBalance === 0) {
+                navigate('/buy');
             }
         } catch (error) {
             console.log(error);
-            
-            toast.error(error.message)
+            toast.error(error.message);
+        } finally {
+            loadCreditsData(); // Ensure this is called in both success and error cases
         }
-    }
-
+    };
+    
 
 
 

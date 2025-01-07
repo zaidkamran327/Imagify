@@ -11,14 +11,7 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-    origin: 'http://localhost:5173', // Replace with your frontend URL
-    methods: 'GET,POST',
-    credentials: true
-}));
-app.options('*', cors()); // Allow preflight requests for all routes
-
-
+app.use(cors());
 
 await connectDB();
 app.use('/api/user' , userRouter);
