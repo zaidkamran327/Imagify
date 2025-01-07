@@ -37,7 +37,6 @@ export const generateImage = async (req, res) => {
       {
         headers: {
           "x-api-key": process.env.CLIPDROP_API,
-          ...formData.getHeaders(),
         },
         responseType: "arraybuffer",
       }
@@ -58,7 +57,7 @@ export const generateImage = async (req, res) => {
       success: true,
       message: "Image Generated",
       creditBalance: updatedBalance,
-      resultImage,
+      resultImage
     });
   } catch (error) {
     console.error("Error generating image:", error);
