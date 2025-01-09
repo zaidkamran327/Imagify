@@ -21,6 +21,12 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization", "token"]
 }));
 
+app.use((err, req, res, next) => {
+    console.error('Error:', err.message);
+    console.error('Stack:', err.stack);
+    res.status(500).send('Server Error');
+  });
+
 await connectDB();
 app.use('/api/user' , userRouter);
 app.use('/api/image' , imageRouter);
