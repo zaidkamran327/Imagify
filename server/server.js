@@ -12,10 +12,10 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:5173", "https://imagify-zs.vercel.app"], // Allow both local and deployed frontends
+    origin: "*", // Allow all origins temporarily for testing
     methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type", "Authorization", "token"] // Add 'token' to allowed headers
-  }));
+    allowedHeaders: ["Content-Type", "Authorization", "token"]
+}))
 
 await connectDB();
 app.use('/api/user' , userRouter);
