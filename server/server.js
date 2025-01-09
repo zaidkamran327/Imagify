@@ -11,11 +11,15 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 app.use(express.json());
+const allowedOrigins = process.env.NODE_ENV === 'production'
+    ? ["https://imagify-zs.vercel.app"]
+    : ["http://localhost:5173"];
+
 app.use(cors({
-    origin: "*", // Allow all origins temporarily for testing
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type", "Authorization", "token"]
-}))
+}));
 
 await connectDB();
 app.use('/api/user' , userRouter);

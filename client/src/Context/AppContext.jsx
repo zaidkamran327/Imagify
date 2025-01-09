@@ -18,21 +18,32 @@ const AppContextProvider = (props) => {
 
     const loadCreditsData = async () => {
         try {
-            const { data } = await axios.get(backendurl + '/api/user/credits', {
+            console.log("Fetching credits data...");
+            const { data } = await axios.get(`${backendurl}/api/user/credits`, {
                 headers: { token }
-
-            })
-
+            });
+    
             if (data.success) {
-                setCredit(data.credits)
-                setUser(data.user)
+                console.log("Credits data loaded successfully:", data);
+                setCredit(data.credits);
+                setUser(data.user);
+            } else {
+                toast.error("Failed to load credits data.");
             }
-
         } catch (error) {
-            console.log(error)
-            toast.error(error.message)
+            if (error.response) {
+                console.error("Server Error:", error.response.data);
+                toast.error(error.response.data.message || "Server error occurred.");
+            } else if (error.request) {
+                console.error("No response received from the server:", error.request);
+                toast.error("Network Error: Unable to connect to the server.");
+            } else {
+                console.error("Error:", error.message);
+                toast.error(`Error: ${error.message}`);
+            }
         }
-    }
+    };
+    
 
 
     const generateImage = async (prompt) => {
@@ -65,9 +76,17 @@ const AppContextProvider = (props) => {
 
     useEffect(() => {
         if (token) {
-            loadCreditsData()
+            const fetchCredits = async () => {
+                try {
+                    await loadCreditsData();
+                } catch (error) {
+                    console.error("Error loading credits:", error);
+                }
+            };
+            fetchCredits();
         }
-    }, [token])
+    }, [token]);
+    
 
 
 
