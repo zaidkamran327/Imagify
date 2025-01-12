@@ -26,6 +26,6 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => console.log('Server is Running on Port: ' + PORT));
 
-export default app
+export default app;
 
 
