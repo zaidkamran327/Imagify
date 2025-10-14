@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
     res.send('Api Working');
 });
 
-if (process.env.NODE_ENV !== 'production') {
-    const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;
+if (!process.env.VERCEL) {
     app.listen(PORT, () => console.log('Server is Running on Port: ' + PORT));
 }
 
