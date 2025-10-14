@@ -20,18 +20,25 @@ app.options('*', cors(corsconfig));
 app.use(express.json());
 app.use(cors(corsconfig));
 
+   
 
+const startServer = async () => {
+    await connectDB();
+    
+    app.use('/api/user' , userRouter);
+    app.use('/api/image' , imageRouter);
 
-await connectDB();
-app.use('/api/user' , userRouter);
-app.use('/api/image' , imageRouter);
+    app.get('/', (req, res) => {
+        res.send('Api Working');
+    });
 
+    app.listen(PORT, () => console.log('Server is Running on Port: ' + PORT));
+};
 
-app.get('/', (req, res) => {
-    res.send('Api Working');
+startServer().catch(err => {
+    console.error('Failed to start server:', err);
+    process.exit(1);
 });
-
-app.listen(PORT, () => console.log('Server is Running on Port: ' + PORT));
 
 export default app;
 
