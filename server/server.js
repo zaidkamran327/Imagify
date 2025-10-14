@@ -7,7 +7,6 @@ import userRouter from './routes/userRoute.js';
 import imageRouter from './routes/imageRoute.js';
 
 
-const PORT = process.env.PORT || 4000;
 const app = express();
 
 app.use(cors());
@@ -22,7 +21,10 @@ app.get('/', (req, res) => {
     res.send('Api Working');
 });
 
-app.listen(PORT, () => console.log('Server is Running on Port: ' + PORT));
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 4000;
+    app.listen(PORT, () => console.log('Server is Running on Port: ' + PORT));
+}
 
 export default app;
 
