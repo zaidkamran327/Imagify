@@ -58,24 +58,24 @@ export const stepsData = [
 export const testimonialsData = [
     {
         image:profile_img_1,
-        name:'Donald Jackman',
-        role:'Graphic Designer',
+        name:'Sarah Mitchell',
+        role:'UI/UX Designer',
         stars:5,
-        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
+        text:`Imagify has completely transformed my design workflow. I can generate stunning concept art and mockup visuals in seconds — it's like having a creative partner available 24/7.`
     },
     {
         image:profile_img_2,
-        name:'Richard Nelson',
-        role:'Content Creator',
-        stars:4,
-        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
+        name:'James Thornton',
+        role:'Content Creator & Blogger',
+        stars:5,
+        text:`I use Imagify daily to create eye-catching thumbnails and social media visuals. The quality is incredible and the speed is unmatched. My engagement has gone up by 40% since I started using it.`
     },
     {
         image:profile_img_1,
-        name:'Donald Jackman',
-        role:' Graphic Designer',
-        stars:5,
-        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
+        name:'Priya Sharma',
+        role:'Digital Marketing Manager',
+        stars:4,
+        text:`Imagify saves our team hours of work every week. We generate campaign visuals, ad creatives, and blog images effortlessly. It's an essential tool for any modern marketing team.`
     },
 ]
 

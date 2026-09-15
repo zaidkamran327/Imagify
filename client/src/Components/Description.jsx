@@ -19,9 +19,9 @@ const Description = () => {
                 <div>
                     <h2 className='text-3xl font-medium max-w-lg mb-4'>Introducing the AI-Powered Text to Image Generator</h2>
                     <p className='text-gray-600 mb-4'>
-                        Our cutting-edge AI technology allows you to effortlessly transform your textual descriptions into stunning visuals. Whether you're an artist, designer, or simply someone with a vivid imagination, our tool empowers you to bring your ideas to life with just a few clicks.</p>
+                        Imagify leverages state-of-the-art AI technology to instantly transform your text descriptions into high-quality, unique images. Whether you're a designer, marketer, developer, or creative enthusiast — Imagify empowers you to produce professional visuals without any design skills.</p>
                     <p className='text-gray-600 mb-4'>
-                        Imagine the possibilities as you describe a scene, and watch it materialize before your eyes. From fantastical landscapes to intricate character designs, the only limit is your imagination. Start creating today and explore the endless potential of AI-generated imagery. </p>
+                        From product mockups and social media content to concept art and illustrations, Imagify handles it all. Just type your idea, and let our AI do the rest. Fast, intuitive, and endlessly creative.</p>
                 </div>
             </div>
         </motion.div>
